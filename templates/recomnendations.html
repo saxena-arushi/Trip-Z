@@ -15,11 +15,11 @@
 
   <nav class="navbar bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand"><img src="{% static 'images/trip-z.png' %}" height = 80px width = 80px></a>
+      <a class="navbar-brand"><img src="{% static 'images/trip-z.png' %}" height = 50px width = 170px></a>
 
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'recommendations' %}" target="_self">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'recomnendations' %}" target="_self">Home</a>
         </li>
         
         <li class="nav-item">
@@ -123,15 +123,14 @@
       + '<hr>'
       + '<p class="card-text">'
       + '<h6>Username: '+'{{ user.username }}'+'</h6>'
-      //+ '<h6>Email: '+'{{ user_detail }}'+'</h6>'
-      //+ '<h6>Gender: '+'{{ user_detail.gender }}'+'</h6>'
-      //+ '<h6>City: '+'{{ user_detail.city }}'+'</h6>'
-      //+ '<h6>Bio: '+'{{ user_detail.bio }}'+'</h6>'
-      + '</p>'
+      //+ '<h6>Email: '+'{{ user.email }}'+'</h6>'
+      // + '<h6>Gender: '+'{{ user_detail.gender }}'+'</h6>'
+      // + '<h6>City: '+'{{ user_detail.city }}'+'</h6>'
+      // + '<h6>Bio: '+'{{ user_detail.bio }}'+'</h6>'
+      // + '</p>'
       + '<a href="{% url 'userprofile' user.username %}" target = "_self">'
       + '<button class="btn btn-danger" type="button" onclick = "">' + 'View Profile' + '</button>' + '</a>'
      + '</div>'
-     +'<br>'
   + '</div>'
             document.write(card);
       {% endfor %}       

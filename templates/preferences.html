@@ -16,7 +16,7 @@
 
   <nav class="navbar bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand"><img src="{% static 'images/trip-z.png' %}" height=80px width=80px></a>
+      <a class="navbar-brand"><img src="{% static 'images/trip-z.png' %}" height=50px width=170px></a>
 
       <ul class="nav justify-content-end">
         <li class="nav-item">
@@ -127,11 +127,11 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">2. Which sex would you
                 prefer to travel with?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name="gender" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Both</option>
+                <option value = "Male">Male</option>
+                <option value = "Female">Female</option>
+                <option value = "Both">Both</option>
               </select>
 
             </div>
@@ -143,12 +143,12 @@
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">3. If you were to take
                 a trip with someone new, what would be the preferred marital status of your ideal trip
                 companion?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "maritalStatus" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Single</option>
-                <option>Married</option>
-                <option>Divorced</option>
-                <option>Widowed</option>
+                <option value = "Single">Single</option>
+                <option value = "Married">Married</option>
+                <option value = "Divorced">Divorced</option>
+                <option value = "Widowed">Widowed</option>
               </select>
 
             </div>
@@ -160,12 +160,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">4. What is the
                 preferred travel frequency of your ideal trip companion?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "travelFrequency" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Rarely</option>
-                <option>Occassionally</option>
-                <option>Frequently</option>
-                <option>Almost Always</option>
+                <option value = "Rarely">Rarely</option>
+                <option value = "Occassionally">Occassionally</option>
+                <option value = "Frequently">Frequently</option>
+                <option value = "Almost Always">Almost Always</option>
               </select>
 
             </div>
@@ -177,14 +177,14 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">5. Which type of trip
                 is the most suitable for you?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "tripType" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Sports and Adventure Trips</option>
-                <option>Relaxation and discovery Trips</option>
-                <option>Festive trips (clubbing and festivals)</option>
-                <option>Eco-solidarity trips</option>
-                <option>Health and well-being trips</option>
-                <option>A mix of everything</option>
+                <option value = "Sports and Adventure Trips">Sports and Adventure Trips</option>
+                <option value = "Relaxation and discovery Trips">Relaxation and discovery Trips</option>
+                <option value = "Festive trips (clubbing and festivals)">Festive trips (clubbing and festivals)</option>
+                <option value = "Eco-solidarity trips">Eco-solidarity trips</option>
+                <option value = "Health and well-being trips">Health and well-being trips</option>
+                <option value = "A mix of everything">A mix of everything</option>
               </select>
 
             </div>
@@ -196,12 +196,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">6. What is your
                 preferred budget?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "budget" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Luxury</option>
-                <option>Mid-range</option>
-                <option>Budget Friendly</option>
-                <option>I don't mind as long as I have a good time</option>
+                <option value = "Luxury">Luxury</option>
+                <option value = "Mid-range">Mid-range</option>
+                <option value = "Budget Friendly">Budget Friendly</option>
+                <option value = "I don't mind as long as I have a good time">I don't mind as long as I have a good time</option>
               </select>
 
             </div>
@@ -213,11 +213,11 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">7. When it comes to
                 your travel companion, who do you prefer they come along with?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "travelCompanion" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Alone</option>
-                <option>With Family</option>
-                <option>With Friends</option>
+                <option value = "Alone">Alone</option>
+                <option value = "With Family">With Family</option>
+                <option value = "With Friends">With Friends</option>
               </select>
 
             </div>
@@ -229,11 +229,11 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">8. What is your
                 preferred communication style of your trip companion?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "communicationStyle" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Introvert</option>
-                <option>Extrovert</option>
-                <option>Ambivert</option>
+                <option value = "Introvert">Introvert</option>
+                <option value = "Extrovert">Extrovert</option>
+                <option value = "Ambivert">Ambivert</option>
               </select>
             </div>
           </div>
@@ -244,12 +244,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">9. What are your
                 preferred interests in your travel buddy?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "interests" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Foodie</option>
-                <option>History Buff</option>
-                <option>Nature Lover</option>
-                <option>Party Animal</option>
+                <option value = "Foodie">Foodie</option>
+                <option value = "History Buff">History Buff</option>
+                <option value = "Nature Lover">Nature Lover</option>
+                <option value = "Party Animal">Party Animal</option>
               </select>
 
             </div>
@@ -261,11 +261,11 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">10. What are the kind
                 of trips you like going on, based on its planning?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "kindOfTrips" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Spontaneous decisions i.e. within the moment</option>
-                <option>Well Planned</option>
-                <option>A mix of both</option>
+                <option value = "Spontaneous decisions i.e. within the moment">Spontaneous decisions i.e. within the moment</option>
+                <option value = "Well Planned">Well Planned</option>
+                <option value = "A mix of both">A mix of both</option>
               </select>
 
             </div>
@@ -277,12 +277,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">11. What are your
                 preferred travel destinations?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "travelDestination" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Mountain Regions</option>
-                <option>Beaches</option>
-                <option>Deserts</option>
-                <option>Cities</option>
+                <option value = "Mountain Regions">Mountain Regions</option>
+                <option value = "Beaches">Beaches</option>
+                <option value = "Deserts">Deserts</option>
+                <option value = "Cities">Cities</option>
               </select>
 
             </div>
@@ -294,12 +294,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">12. For your travels,
                 you often choose?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "stays" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Home stays</option>
-                <option>Stays in luxury hotels</option>
-                <option>Camping stays</option>
-                <option>Any normal hotel</option>
+                <option value = "Home stays">Home stays</option>
+                <option value = "Stays in luxury hotels">Stays in luxury hotels</option>
+                <option value = "Camping stays">Camping stays</option>
+                <option value = "Any normal hotel">Any normal hotel</option>
               </select>
             </div>
           </div>
@@ -310,13 +310,13 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">13. What are your
                 travel motivations?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "travelMotivation" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>The need to escape from everyday life</option>
-                <option>The need to discover new horizons</option>
-                <option>The need to meet new people</option>
-                <option>The need to live strong experiences</option>
-                <option>The need to learn new things</option>
+                <option value = "The need to escape from everyday life">The need to escape from everyday life</option>
+                <option value = "The need to discover new horizons">The need to discover new horizons</option>
+                <option value ="The need to meet new people">The need to meet new people</option>
+                <option value = "The need to live strong experiences">The need to live strong experiences</option>
+                <option value = "The need to learn new things">The need to learn new things</option>
               </select>
             </div>
           </div>
@@ -327,12 +327,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">14. What is your the
                 most important need / requirement when traveling?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "requirement" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Quality and comfort</option>
-                <option>Personal Security</option>
-                <option>A good experience</option>
-                <option>A wide range of activities</option>
+                <option value = "Quality and comfort">Quality and comfort</option>
+                <option value = "Personal Security">Personal Security</option>
+                <option value = "A good experience">A good experience</option>
+                <option value = "A wide range of activities">A wide range of activities</option>
               </select>
             </div>
           </div>
@@ -343,13 +343,13 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">15. Which mode of
                 travel do you prefer while on a trip?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "modeOfTravel" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Walking</option>
-                <option>Cycling</option>
-                <option>Cars/Cabs</option>
-                <option>Public transports</option>
-                <option>Rental bikes/cars (Eg. Zoomcar)</option>
+                <option value = "Walking">Walking</option>
+                <option value = "Cycling">Cycling</option>
+                <option value = "Cars/Cabs">Cars/Cabs</option>
+                <option value = "Public transports">Public transports</option>
+                <option value = "Rental bikes/cars (Eg. Zoomcar)">Rental bikes/cars (Eg. Zoomcar)</option>
               </select>
             </div>
           </div>
@@ -360,12 +360,12 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">16. What’s your
                 preferred travel pace?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "travelPace" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Do as much as possible per day</option>
-                <option>
+                <option value = "Do as much as possible per day">Do as much as possible per day</option>
+                <option value = "Take your time exploring">
                   Take your time exploring</option>
-                <option>
+                <option value = "Move at a pace dictated by mood and energy levels">
                   Move at a pace dictated by mood and energy levels</option>
 
               </select>
@@ -378,13 +378,13 @@
               <label class="form-label col-form-label-lg"
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">
                 17. What are the kind of places you prefer eating in when on a trip?</label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "eatingPlaces" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>Hotel you're staying in</option>
-                <option>Street side</option>
-                <option>
+                <option value = "Hotel you're staying in">Hotel you're staying in</option>
+                <option value = "Street side">Street side</option>
+                <option value = "Restaurant/Cafe">
                   Restaurant/Cafe</option>
-                <option>
+                <option value = "Authentic food places based on the region">
                   Authentic food places based on the region</option>
 
               </select>
@@ -398,17 +398,17 @@
                 style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">18. Based on the
                 accomodations, what do you prefer?
               </label>
-              <select class="form-select" required multiple>
+              <select class="form-select" name = "accomodations" required multiple>
                 <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
-                <option>You don't mind sharing a room</option>
-                <option>
+                <option value = "You don't mind sharing a room">You don't mind sharing a room</option>
+                <option value = "You prefer staying in a different room">
                   You prefer staying in a different room</option>
-                <option>
+                <option value = "You are open to both the options">
                   You are open to both the options</option>
 
               </select>
               <br> <br>
-              <a href = "{% url 'recommendations' %}" alt = "">
+              <a href = "{% url 'recomnendations' %}" alt = "">
                 <button class = "btn btn-danger" type="submit">Find my trip-buddy</button>
               </a>
               

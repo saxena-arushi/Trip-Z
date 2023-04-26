@@ -13,9 +13,8 @@ urlpatterns = [
     path('userprofile/<str:username>/', views.userprofile, name='userprofile'),
     path('aboutus', views.aboutus, name="aboutus"),
     path('contactus', views.contactus, name="contactus"),
-    #path('publish_trip/', views.publish_trip, name='publish_trip'),    
     path('publish_a_trip/', views.publish_a_trip, name='publish_a_trip'),
-    path('retrieve/', views.retrieve,name="retrieve")
-    #path('accounts/login/', LoginView.as_view(), name='login'),
+    path('recomnendations', views.recomnendations, name="recomnendations")
+    
 ]
 

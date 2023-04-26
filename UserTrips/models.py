@@ -11,7 +11,7 @@ class UserDetails(models.Model):
     securityQues = models.TextField(max_length=50)
     securityAns = models.TextField(max_length=50)
     bio = models.TextField(max_length=200)
-
+    cluster = models.IntegerField(null=True, blank=True)
     def __str__(self):
         return self.user.username
     

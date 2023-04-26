@@ -5,7 +5,7 @@ from .models import UserDetails, Preferences, PublishedTrips
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-import openpyxl
+
 # Create your views here.
 
 def LandingPage(request):
@@ -70,7 +70,7 @@ def Login(request):
 
         if user is not None and UserDetails.objects.filter(securityAns = secAns).exists():
             auth.login(request, user)
-            return redirect('recommendations')
+            return redirect('recomnendations')
         else:
             messages.info(request, 'Credentials Invalid!')
             return redirect('Login') 
@@ -85,24 +85,24 @@ def preferences(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             user = request.user
-            age = request.POST.getlist('age[]')
-            gender = request.POST.getlist('gender[]')
-            maritalStatus = request.POST.getlist('maritalStatus[]')
-            travelFrequency = request.POST.getlist('travelFrequency[]')
-            tripType = request.POST.getlist('tripType[]')
-            budget = request.POST.getlist('budget[]')
-            travelCompanion = request.POST.getlist('travelCompanion[]')
-            communicationStyle = request.POST.getlist('communicationStyle[]')
-            interests = request.POST.getlist('interests[]')
-            kindOfTrips = request.POST.getlist('kindOfTrips[]')
-            travelDestination = request.POST.getlist('travelDestination[]')
-            stays = request.POST.getlist('stays[]')
-            travelMotivation = request.POST.getlist('travelMotivation[]')
-            requirement = request.POST.getlist('requirement[]')
-            modeOfTravel = request.POST.getlist('modeOfTravel[]')
-            travelPace = request.POST.getlist('travelPace[]')
-            eatingPlaces = request.POST.getlist('eatingPlaces[]')
-            accomodations = request.POST.getlist('accomodations[]')
+            age = request.POST.getlist('age_group')
+            gender = request.POST.getlist('gender')
+            maritalStatus = request.POST.getlist('maritalStatus')
+            travelFrequency = request.POST.getlist('travelFrequency')
+            tripType = request.POST.getlist('tripType')
+            budget = request.POST.getlist('budget')
+            travelCompanion = request.POST.getlist('travelCompanion')
+            communicationStyle = request.POST.getlist('communicationStyle')
+            interests = request.POST.getlist('interests')
+            kindOfTrips = request.POST.getlist('kindOfTrips')
+            travelDestination = request.POST.getlist('travelDestination')
+            stays = request.POST.getlist('stays')
+            travelMotivation = request.POST.getlist('travelMotivation')
+            requirement = request.POST.getlist('requirement')
+            modeOfTravel = request.POST.getlist('modeOfTravel')
+            travelPace = request.POST.getlist('travelPace')
+            eatingPlaces = request.POST.getlist('eatingPlaces')
+            accomodations = request.POST.getlist('accomodations')
 
             p = Preferences.objects.create(
                 user = user,
@@ -126,104 +126,114 @@ def preferences(request):
                 accomodations = accomodations
             )
             p.save()
-
-            # # add user data to Excel file
-            # try:
-            #     workbook = openpyxl.load_workbook('UserTrips//users.xlsx')
-            # except FileNotFoundError:
-            #     workbook = openpyxl.Workbook()
-            # worksheet = workbook.active
-            # row_number = worksheet.max_row + 1
-
-            # # age_string = ",".join(age)
-            # # gender_string = ",".join(gender)
-            # # maritalStatus_string = ",".join(maritalStatus)
-            # # travelFrequency_string = ",".join(travelFrequency)
-            # # tripType_string = ",".join(tripType)
-            # # budget_string = ",".join(budget)
-            # # travelCompanion_string = ",".join(travelCompanion)
-            # # communicationStyle_string = ",".join(communicationStyle)
-            # # interests_string = ",".join(interests)
-            # # kindOfTrips_string = ",".join(kindOfTrips)
-            # # travelDestination_string = ",".join(travelDestination)
-            # # stays_string = ",".join(stays)
-            # # travelMotivation_string = ",".join(travelMotivation)
-            # # requirement_string = ",".join(requirement)
-            # # modeOfTravel_string = ",".join(modeOfTravel)
-            # # travelPace_string = ",".join(travelPace)
-            # # eatingPlaces_string = ",".join(eatingPlaces)
-            # # accomodations_string = ",".join(accomodations)
-
-            # # data = [
-            # #     age,
-            # #     gender,
-            # #     maritalStatus,
-            # #     travelFrequency,
-            # #     tripType,
-            # #     budget,
-            # #     travelCompanion,
-            # #     communicationStyle,
-            # #     interests,
-            # #     kindOfTrips,
-            # #     travelDestination,
-            # #     stays,
-            # #     travelMotivation,
-            # #     requirement,
-            # #     modeOfTravel,
-            # #     travelPace,
-            # #     eatingPlaces,
-            # #     accomodations
-            # # ]
-            # # add user data to Excel file
-            # try:
-            #     workbook = openpyxl.load_workbook('UserTrips//users.xlsx')
-            # except FileNotFoundError:
-            #     workbook = openpyxl.Workbook()
-            # worksheet = workbook.active
-            # row_number = worksheet.max_row + 1
+        #  # Preprocess the preferences
+        # preferences = preprocess([preference_1, preference_2, ...])
         
-            # # # add the data to the specific columns in the Excel file
-            # # worksheet.cell(row=row_number, column=1).value = ','.join(age)
-            # # worksheet.cell(row=row_number, column=2).value = ','.join(gender)
-            # # worksheet.cell(row=row_number, column=3).value = ','.join(maritalStatus)
-            # # worksheet.cell(row=row_number, column=4).value = ','.join(travelFrequency)
-            # # worksheet.cell(row=row_number, column=5).value = ','.join(tripType)
-            # # worksheet.cell(row=row_number, column=6).value = ','.join(budget)
-            # # worksheet.cell(row=row_number, column=7).value =
-            # # workbook.save('users.xlsx')
-            # worksheet.cell(row=row_number, column=1).value = age[0]
-            # worksheet.cell(row=row_number, column=2).value = gender[0]
-            # worksheet.cell(row=row_number, column=3).value = maritalStatus[0]
-            # worksheet.cell(row=row_number, column=4).value = travelFrequency[0]
-            # worksheet.cell(row=row_number, column=5).value = tripType[0]
-            # worksheet.cell(row=row_number, column=6).value = budget[0]
-            # worksheet.cell(row=row_number, column=7).value = travelCompanion[0]
-            # worksheet.cell(row=row_number, column=8).value = communicationStyle[0]
-            # worksheet.cell(row=row_number, column=9).value = interests[0]
-            # worksheet.cell(row=row_number, column=10).value = kindOfTrips[0]
-            # worksheet.cell(row=row_number, column=11).value = travelDestination[0]
-            # worksheet.cell(row=row_number, column=12).value = stays[0]
-            # worksheet.cell(row=row_number, column=13).value = travelMotivation[0]
-            # worksheet.cell(row=row_number, column=14).value = requirement[0]
-            # worksheet.cell(row=row_number, column=15).value = modeOfTravel[0]
-            # worksheet.cell(row=row_number, column=16).value = travelPace[0]
-            # worksheet.cell(row=row_number, column=17).value = eatingPlaces[0]
-            # worksheet.cell(row=row_number, column=18).value = accomodations[0]
+        # # Load the pre-trained k-means model
+        # kmeans=joblib.load('finalized_model.sav')
+        # # Predict the cluster value
+        # cluster = kmeans.predict(preferences)
 
-            # # for row_data in data:
-            # #     worksheet.append(row_data)
-            
-            # workbook.save('users.xlsx')
-            
-            return redirect('recommendations')
+        # model = load_model('kmeans_model.pkl')
+        # encoder = load_encoder('encoder.pkl')
+
+        #  # Preprocess the new data point
+        # answers=age+gender+maritalStatus+travelFrequency+tripType+budget+travelCompanion+communicationStyle+interests+kindOfTrips+travelDestination+stays+travelMotivation+requirement+modeOfTravel+travelPace+eatingPlaces+accomodations
+        # # print(answers)
+        # cluster = predict_cluster(answers, model, encoder)
+
+            return redirect('recomnendations')
     return render(request, 'preferences.html')
 
+from .models import Preferences
+from mlxtend.preprocessing import TransactionEncoder
+import numpy as np
+import pandas as pd
+
+@login_required
+def get_user_preferences(request):
+    user = Preferences.objects.get(user=request.user)
+    age = user.age
+    gender = user.gender
+    maritalStatus = user.maritalStatus
+    travelFrequency = user.travelFrequency
+    tripType = user.tripType
+    budget = user.budget
+    travelCompanion = user.travelCompanion
+    communicationStyle = user.communicationStyle
+    interests = user.interests
+    kindOfTrips = user.kindOfTrips
+    travelDestination = user.travelDestination
+    stays = user.stays
+    travelMotivation = user.travelMotivation
+    requirement = user.requirement
+    modeOfTravel = user.modeOfTravel
+    travelPace = user.travelPace
+    eatingPlaces = user.eatingPlaces
+    accomodations = user.accomodations
+
+    # answers=age+gender+maritalStatus+travelFrequency+tripType+budget+travelCompanion+communicationStyle+interests+kindOfTrips+travelDestination+stays+travelMotivation+requirement+modeOfTravel+travelPace+eatingPlaces+accomodations
+    # print(answers)
+
+    # return age, gender, maritalStatus, travelFrequency, tripType, budget, travelCompanion, communicationStyle, interests, kindOfTrips, travelDestination, stays, travelMotivation, requirement, modeOfTravel, travelPace, eatingPlaces, accomodations
+
+    user_prefs_list = [
+        age,
+        gender,
+        maritalStatus,
+        travelFrequency,
+        tripType,
+        budget,
+        travelCompanion,
+        communicationStyle,
+        interests,
+        kindOfTrips,
+        travelDestination,
+        stays,
+        travelMotivation,
+        requirement,
+        modeOfTravel,
+        travelPace,
+        eatingPlaces,
+        accomodations]
+    
+    #my_df = pd.DataFrame(user_prefs_list)
+    my_df = my_df.applymap(lambda x: x.split(','))
+    my_df.head()
+
+    size = my_df.shape[0]
+    dataset = []
+    for i in range(size):
+        row_list = my_df.loc[i, :].values.flatten().tolist()
+        flat_list = [item for sublist in row_list for item in sublist]
+        dataset.append(flat_list)
+        
+    print(dataset)
+    
+    #from mlxtend.preprocessing import TransactionEncoder
+    #te = TransactionEncoder()
+    #te_ary = te.fit(dataset).transform(dataset)
+    #df = pd.DataFrame(te_ary, columns=te.columns_)*1
+    #Y=df.values
+
+    #import joblib
+
+    # "C:\Django\TripZ\UserTrips\finalized_model.sav"
+    filename = 'C://Django//tripZ//UserTrips//finalized_model.sav'
+    #kmeans_model = joblib.load(filename)
+
+    #recommendations = kmeans_model.predict(Y)
+    predicted_cluster = recommendations[0]
+    print(predicted_cluster)
+
+    
+    return render(request, 'recommendations.html', {'recommendations': recommendations})
 
 def recommendations(request):
-    if request.user.is_authenticated:
-        #retrieve(request)
+    
+    #if request.user.is_authenticated:
+        
         if request.method == 'GET':
-            print(request.GET)
             leavingFrom = request.GET.get('goingFrom')
             goingTo = request.GET.get('goingTo')
             startDate = request.GET.get('startDate')
@@ -235,7 +245,7 @@ def recommendations(request):
                 startDate=startDate,
                 endDate=endDate,
             )
-            print(trips)
+            
             if trips.exists():
                 users = User.objects.filter(publishedtrips__in=trips).distinct()
                 # users = User.objects.filter(publishedtrips__in=trips).distinct().values_list('username', flat=True)
@@ -243,48 +253,27 @@ def recommendations(request):
                 for user in users:
                     user_details = user.userdetails.get()
                     user_details_list.append(user_details)
-                return render(request, 'recommendations.html', {'users': users, 'user_details' : user_details_list })
+                return {'users': users, 'user_details' : user_details_list }
+                #return render(request, 'recommendations.html', {'users': users, 'user_details' : user_details_list })
             else:
-                return render(request, 'recommendations.html', {'users': []})
-        return render(request, 'recommendations.html')
+                #return render(request, 'recommendations.html', {'users': []})
+                return {'users': []}
+        return redirect('recomndations')
+        #return render(request, 'recomnendations.html')
+    # else:
+    #     return redirect('/')
+
+
+def recomnendations(request):
+    if request.user.is_authenticated:
+        if request.GET:
+            d = recommendations(request)
+            return render(request, 'recommendations.html', d)
+        users = User.objects.filter(email__icontains = '@yahoo.com')
+        return render(request, 'recomnendations.html', {'users':users})
     else:
         return redirect('/')
-
-from django.db.models import Q
-
-@login_required
-def retrieve(request):
-    users = User.objects.filter(email__icontains='@gmail.com')
-    #user_details_list = []
-    # for user in users:
-    #     user_details = user.userdetails.get()
-    #     user_details_list.append(user_details)
-    print(users)
-    #print(user_details_list)        
-    return render(request, 'retrieve.html', {'users': users,})
     
-                #users = User.objects.filter(publishedtrips__in=trips).distinct()
-
-    
-# get the user whose marital status we want to match
-    #user = User.objects.get(username = request.user.username)
-
-# get all users with the same marital status preference
-    user_dict = {}
-
-    for user in users:
-        marital_status = user.marital_status
-        if marital_status not in user_dict:
-            user_dict[marital_status] = []
-        user_dict[marital_status].append(user)
-
-    print(user_dict)
-#This will print a dictionary where the keys are the different marital status values, and the values are lists of users with the corresponding marital status. You can then pass this dictionary to your HTML template to display the users grouped by their marital status.
-
-
-
-
-
 
 @login_required
 def personalDashboard(request):
@@ -321,11 +310,8 @@ def publish_a_trip(request):
         return redirect('/personal-dashboard')
     return render(request, 'publish_trip.html')
 
-# def publish_trip(request):
-#     return render(request, 'publish_trip.html')
-#publish_a_trip(request)
-
    
+
 def aboutus(request):
     return render(request,"aboutus.html")
 
