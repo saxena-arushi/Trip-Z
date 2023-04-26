@@ -1,0 +1,438 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Trip-Z: Preference Cards</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand"><img src="{% static 'images/trip-z.png' %}" height=50px width=170px></a>
+
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'recommendations' %}" target="_self">Home</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="../Home-Page/About-Us/about-us.html" target="_self">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Home-Page/Contact-Us/contact-us.html" target="_self">Contact Us</a>
+        </li> -->
+        <!-- 
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Profile</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="./Profile/personal-dashboard.html" target="_self">My Dashboard</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="./home-page.html" target="_self">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+
+            <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
+    </div>
+  </nav>
+
+
+  <section class="home">
+    <div id="carousel" class="carousel slide" data-bs-ride="false">
+
+      <div class="carousel-controls">
+        {% comment %} <ul class="carousel-indicators">
+          <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"
+            style="background-image:url('{% static 'images/ques-1.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="1"
+            style="background-image:url('{% static 'images/ques-2.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="2"
+            style="background-image:url('{% static 'images/ques-3.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="3"
+            style="background-image:url('{% static 'images/ques-4.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="4"
+            style="background-image:url('{% static 'images/ques-5.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="5"
+            style="background-image:url('{% static 'images/ques-6.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="6"
+            style="background-image:url('{% static 'images/ques-7.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="7"
+            style="background-image:url('{% static 'images/ques-8.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="8"
+            style="background-image:url('{% static 'images/ques-9.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="9"
+            style="background-image:url('{% static 'images/ques-10.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="10"
+            style="background-image:url('{% static 'images/ques-11.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="11"
+            style="background-image:url('{% static 'images/ques-12.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="12"
+            style="background-image:url('{% static 'images/ques-13.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="13"
+            style="background-image:url('{% static 'images/ques-14.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="14"
+            style="background-image:url('{% static 'images/ques-15.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="15"
+            style="background-image:url('{% static 'images/ques-16.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="16"
+            style="background-image:url('{% static 'images/ques-17.jpg' %}'); list-style-type: none;"></li>
+          <li data-bs-target="#carousel" data-bs-slide-to="17"
+            style="background-image:url('{% static 'images/ques-18.jpg' %}'); list-style-type: none;"></li>
+
+        </ul>
+         {% endcomment %}<a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+          <img src="{% static 'images/left-arrow.svg' %}" alt="Prev">
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+          <img src="{% static 'images/right-arrow.svg' %}" alt="Next">
+        </a>
+      </div>
+
+      
+      <form method="post" class="form-group">
+        {% csrf_token %}
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="background-image:url('{% static 'images/ques-1.jpg' %}')">
+            <div class="container">
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">1. What age group
+                would you prefer to travel with?</label>
+              <select class="form-select" name="age_group" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value="18-30">18-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40-50">40-50</option>
+                <option value="50 and above">50 and above.</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-2.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">2. Which sex would you
+                prefer to travel with?</label>
+              <select class="form-select" name="gender" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Male">Male</option>
+                <option value = "Female">Female</option>
+                <option value = "Both">Both</option>
+              </select>
+
+            </div>
+          </div>
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-3.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">3. If you were to take
+                a trip with someone new, what would be the preferred marital status of your ideal trip
+                companion?</label>
+              <select class="form-select" name = "maritalStatus" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Single">Single</option>
+                <option value = "Married">Married</option>
+                <option value = "Divorced">Divorced</option>
+                <option value = "Widowed">Widowed</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-4.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">4. What is the
+                preferred travel frequency of your ideal trip companion?</label>
+              <select class="form-select" name = "travelFrequency" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Rarely">Rarely</option>
+                <option value = "Occassionally">Occassionally</option>
+                <option value = "Frequently">Frequently</option>
+                <option value = "Almost Always">Almost Always</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-5.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">5. Which type of trip
+                is the most suitable for you?</label>
+              <select class="form-select" name = "tripType" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Sports and Adventure Trips">Sports and Adventure Trips</option>
+                <option value = "Relaxation and discovery Trips">Relaxation and discovery Trips</option>
+                <option value = "Festive trips (clubbing and festivals)">Festive trips (clubbing and festivals)</option>
+                <option value = "Eco-solidarity trips">Eco-solidarity trips</option>
+                <option value = "Health and well-being trips">Health and well-being trips</option>
+                <option value = "A mix of everything">A mix of everything</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-6.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">6. What is your
+                preferred budget?</label>
+              <select class="form-select" name = "budget" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Luxury">Luxury</option>
+                <option value = "Mid-range">Mid-range</option>
+                <option value = "Budget Friendly">Budget Friendly</option>
+                <option value = "I don't mind as long as I have a good time">I don't mind as long as I have a good time</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-7.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">7. When it comes to
+                your travel companion, who do you prefer they come along with?</label>
+              <select class="form-select" name = "travelCompanion" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Alone">Alone</option>
+                <option value = "With Family">With Family</option>
+                <option value = "With Friends">With Friends</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-8.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">8. What is your
+                preferred communication style of your trip companion?</label>
+              <select class="form-select" name = "communicationStyle" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Introvert">Introvert</option>
+                <option value = "Extrovert">Extrovert</option>
+                <option value = "Ambivert">Ambivert</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-9.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">9. What are your
+                preferred interests in your travel buddy?</label>
+              <select class="form-select" name = "interests" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Foodie">Foodie</option>
+                <option value = "History Buff">History Buff</option>
+                <option value = "Nature Lover">Nature Lover</option>
+                <option value = "Party Animal">Party Animal</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-10.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">10. What are the kind
+                of trips you like going on, based on its planning?</label>
+              <select class="form-select" name = "kindOfTrips" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Spontaneous decisions i.e. within the moment">Spontaneous decisions i.e. within the moment</option>
+                <option value = "Well Planned">Well Planned</option>
+                <option value = "A mix of both">A mix of both</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-11.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">11. What are your
+                preferred travel destinations?</label>
+              <select class="form-select" name = "travelDestination" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Mountain Regions">Mountain Regions</option>
+                <option value = "Beaches">Beaches</option>
+                <option value = "Deserts">Deserts</option>
+                <option value = "Cities">Cities</option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-12.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">12. For your travels,
+                you often choose?</label>
+              <select class="form-select" name = "stays" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Home stays">Home stays</option>
+                <option value = "Stays in luxury hotels">Stays in luxury hotels</option>
+                <option value = "Camping stays">Camping stays</option>
+                <option value = "Any normal hotel">Any normal hotel</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-13.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">13. What are your
+                travel motivations?</label>
+              <select class="form-select" name = "travelMotivation" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "The need to escape from everyday life">The need to escape from everyday life</option>
+                <option value = "The need to discover new horizons">The need to discover new horizons</option>
+                <option value ="The need to meet new people">The need to meet new people</option>
+                <option value = "The need to live strong experiences">The need to live strong experiences</option>
+                <option value = "The need to learn new things">The need to learn new things</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-14.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">14. What is your the
+                most important need / requirement when traveling?</label>
+              <select class="form-select" name = "requirement" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Quality and comfort">Quality and comfort</option>
+                <option value = "Personal Security">Personal Security</option>
+                <option value = "A good experience">A good experience</option>
+                <option value = "A wide range of activities">A wide range of activities</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-15.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">15. Which mode of
+                travel do you prefer while on a trip?</label>
+              <select class="form-select" name = "modeOfTravel" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Walking">Walking</option>
+                <option value = "Cycling">Cycling</option>
+                <option value = "Cars/Cabs">Cars/Cabs</option>
+                <option value = "Public transports">Public transports</option>
+                <option value = "Rental bikes/cars (Eg. Zoomcar)">Rental bikes/cars (Eg. Zoomcar)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-16.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">16. What’s your
+                preferred travel pace?</label>
+              <select class="form-select" name = "travelPace" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Do as much as possible per day">Do as much as possible per day</option>
+                <option value = "Take your time exploring">
+                  Take your time exploring</option>
+                <option value = "Move at a pace dictated by mood and energy levels">
+                  Move at a pace dictated by mood and energy levels</option>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-17.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">
+                17. What are the kind of places you prefer eating in when on a trip?</label>
+              <select class="form-select" name = "eatingPlaces" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "Hotel you're staying in">Hotel you're staying in</option>
+                <option value = "Street side">Street side</option>
+                <option value = "Restaurant/Cafe">
+                  Restaurant/Cafe</option>
+                <option value = "Authentic food places based on the region">
+                  Authentic food places based on the region</option>
+
+              </select>
+            </div>
+          </div>
+
+          <div class="carousel-item" style="background-image:url('{% static 'images/ques-18.jpg' %}')">
+            <div class="container">
+              <!-- <h2>1. What age group would you prefer to travel with?</h2> -->
+              <label class="form-label col-form-label-lg"
+                style="color:white; font-family: monospace; font-weight: 600px; font-size: 40px;">18. Based on the
+                accomodations, what do you prefer?
+              </label>
+              <select class="form-select" name = "accomodations" required multiple>
+                <option selected="true" style='display: none' aria-placeholder="Select age group"></option>
+                <option value = "You don't mind sharing a room">You don't mind sharing a room</option>
+                <option value = "You prefer staying in a different room">
+                  You prefer staying in a different room</option>
+                <option value = "You are open to both the options">
+                  You are open to both the options</option>
+
+              </select>
+              <br> <br>
+              <a href = "{% url 'recomnendations' %}" alt = "">
+                <button class = "btn btn-danger" type="submit">Find my trip-buddy</button>
+              </a>
+              
+            </div>
+          </div>
+          
+
+      </form>
+    </div>
+  </section>
+
+<!--   <script>
+    $(document).ready(function () {
+      var indicators = $('#carousel ol.carousel-indicators li');
+      var indicatorWidth = indicators.first().outerWidth();
+      var containerWidth = $('#carousel .carousel-indicators').width();
+      var visibleIndicators = Math.floor(containerWidth / indicatorWidth);
+      indicators.slice(visibleIndicators).hide();
+    });
+
+  </script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
