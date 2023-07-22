@@ -5,6 +5,7 @@ from .models import UserDetails, Preferences, PublishedTrips
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
+import random
 
 # Create your views here.
 
@@ -27,6 +28,7 @@ def signup(request):
         securityQues = request.POST['secques']
         securityAns = request.POST['secans']
         bio = request.POST['bio']
+        c = str(cluster())
 
         if password == cpassword:
             if User.objects.filter(email = email).exists():
@@ -51,7 +53,8 @@ def signup(request):
                 gender=gender, 
                 securityQues=securityQues, 
                 securityAns=securityAns, 
-                bio=bio
+                bio=bio,
+                cluster = c
             )
   
             u.save()
@@ -79,6 +82,11 @@ def Login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def cluster():
+    r = random.randint(0,5)
+    print(r)
+    return r
 
 @login_required
 def preferences(request):
@@ -146,9 +154,9 @@ def preferences(request):
     return render(request, 'preferences.html')
 
 from .models import Preferences
-from mlxtend.preprocessing import TransactionEncoder
+#from mlxtend.preprocessing import TransactionEncoder
 import numpy as np
-import pandas as pd
+#import pandas as pd
 
 @login_required
 def get_user_preferences(request):
@@ -263,14 +271,24 @@ def recommendations(request):
     # else:
     #     return redirect('/')
 
+from django.core.cache import cache
+cache.clear()
+
 
 def recomnendations(request):
     if request.user.is_authenticated:
         if request.GET:
             d = recommendations(request)
             return render(request, 'recommendations.html', d)
-        users = User.objects.filter(email__icontains = '@yahoo.com')
-        return render(request, 'recomnendations.html', {'users':users})
+        
+        user = request.user
+        userD = UserDetails.objects.get(user=user)
+        cluster = userD.cluster
+        user_details = UserDetails.objects.filter(cluster__icontains = cluster)
+        #u = User.objects.filter(user__in=user_details)
+        u = [ud.user for ud in user_details] 
+        print(u)
+        return render(request, 'recomnendations.html', {'users':u})
     else:
         return redirect('/')
     
